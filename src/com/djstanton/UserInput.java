@@ -2,6 +2,7 @@ package com.djstanton;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class UserInput {
@@ -15,9 +16,11 @@ public class UserInput {
         List<String> strList = new ArrayList<>();
         String[] words = input.split(delims);
 
-        for (String word : words) {
-            strList.add(word);
-        }
+//        for (String word : words) {
+//            strList.add(word);
+//        }
+
+        Collections.addAll(strList, words );
 
         return strList;
     }
@@ -29,7 +32,7 @@ public class UserInput {
         if (!input.equalsIgnoreCase("q")) {
 
             if (input.equals("")) {
-                response = "I can't read your mind, please enter a command";
+                response = "The telepathic interface is temporarily offline, please enter a command";
             } else {
 
                 List<String> parsedList = wordList(input);
@@ -51,6 +54,9 @@ public class UserInput {
                     if (!objects.contains(noun)) {
                         System.out.println("I don't know what " + noun + " is.");
                     }
+
+                    System.out.println("Verb = " + verb);
+                    System.out.println("Noun = " + noun);
                 }
             }
         }
