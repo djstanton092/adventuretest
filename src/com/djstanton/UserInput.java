@@ -2,7 +2,6 @@ package com.djstanton;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class UserInput {
@@ -12,17 +11,15 @@ public class UserInput {
     }
 
     public static List<String> wordList(String input) {
-        String delims = "[ \t,.:;?!\"']+";
-        List<String> strList = new ArrayList<>();
-        String[] words = input.split(delims);
+        //String delimiters = "[ \t,.:;?!\"']+";
 
-//        for (String word : words) {
-//            strList.add(word);
-//        }
+        String[] words = input.split("[ \t,.:;?!\"']+");
 
-        Collections.addAll(strList, words );
+        //List<String> strList = Arrays.asList(words);
 
-        return strList;
+        return Arrays.asList(words);
+
+        //return strList;
     }
 
 
