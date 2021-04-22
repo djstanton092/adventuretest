@@ -8,17 +8,22 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String input = "";
+        Scanner in = new Scanner(System.in);
+        String input;
+        String output;
+
+        Game game = new Game();
+
+        game.showIntro();
 
         do {
             System.out.print("> ");
-            input = scanner.nextLine();
-            System.out.println(UserInput.parseInput(input));
+            input = in.nextLine();  //in.readLine();
+            output = game.runCommand(input);
+            System.out.println(output);
+        } while (!"q".equalsIgnoreCase(input));
 
-        } while (!input.equalsIgnoreCase("q"));
-
-        scanner.close();
+        in.close();
     }
 
 }
